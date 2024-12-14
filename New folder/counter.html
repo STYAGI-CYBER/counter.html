@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter Widget</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+        }
+        .counter {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #reset {
+            background-color: #28a745;
+        }
+        #reset:hover {
+            background-color: #218838;
+        }
+        #counter {
+            font-size: 24px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="counter">
+        <button id="decrease">-</button>
+        <span id="counter">200</span>
+        <button id="increase">+</button>
+    </div>
+    <button id="reset">Reset</button>
+
+    <script>
+        const counterElement = document.getElementById('counter');
+        const decreaseButton = document.getElementById('decrease');
+        const increaseButton = document.getElementById('increase');
+        const resetButton = document.getElementById('reset');
+
+        let counterValue = 200;
+
+        function updateCounter() {
+            counterElement.textContent = counterValue;
+        }
+
+        decreaseButton.addEventListener('click', () => {
+            counterValue--;
+            updateCounter();
+        });
+
+        increaseButton.addEventListener('click', () => {
+            counterValue++;
+            updateCounter();
+        });
+
+        resetButton.addEventListener('click', () => {
+            counterValue = 200;
+            updateCounter();
+        });
+    </script>
+</body>
+</html>
